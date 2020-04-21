@@ -1,0 +1,72 @@
+#calculator {
+    /* background-color: #404040; */
+    background-color: #e3ded8;
+    box-shadow: 3px 3px 7px #989898;
+    width: 385px;
+    height: 550px;
+    padding: 35px 25px;
+    border-radius: 25px;
+}
+
+#cal-head {
+    /* background-color: burlywood; */
+    /* background-color: #e6c08f; #d0d6e1 #b7c792 #89cd85 */
+    background-color: #b7c792;
+    width: 97%;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: 7px;
+    box-shadow: 2px 2px 5px #a2a2a2 inset;
+    border-radius: 5px;
+}
+
+#cal-body {
+    margin: 32px 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.6em;
+}
+
+.row {
+    margin: 20px 0;
+}
+
+#two-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row-in, #two-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#wrap-row-in > .row-in:first-child {
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #8d90b166;
+    display: inline-block;
+    width: 80px;
+    height: 60px;
+    text-align: center;
+    margin: 0 8px;
+    box-shadow: 2px 2px 0px #666;
+    cursor: pointer;
+    line-height: 18px;
+    border-radius: 10px;
+}
+
+.numBtn {
+    background-color: white;
+}
+
+#ac, #ce {
+    background-color: #ff6d51;
+}
+
+#plus {
+    height: 100%;
+    line-height: 100px;
+}
