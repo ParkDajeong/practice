@@ -10,15 +10,16 @@
         <h2>계산기</h2>
         <div id="calculator">
             <div id="cal-head">
-
+              <input type="text" id="operations" name="operations" readonly />
+              <input type="text" id="result" name="result" readonly />
             </div>
             <div id="cal-body">
               <div class="row">
                 <div class="row-in">
-                  <div id="ac" class="btn">
+                  <div id="ac" class="btn" onclick="allClear()">
                     <p>AC</p>
                   </div>
-                  <div id="ce" class="btn">
+                  <div id="ce" class="btn" onclick="clearEntry()">
                     <p>CE</p>
                   </div>
                   <div id="percent" class="btn">
@@ -95,4 +96,5 @@
             </div>
         </div>
     </body>
+    <script src="calculator.js"></script>
 </html>
