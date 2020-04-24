@@ -10,7 +10,7 @@ function click_numBtn() {
         if(last == '=') {
             expression.value = '';
         }
-        if(flag == true){
+        if(flag == true || insert.value == '0'){
             insert.value = child[0].innerText;
         } else {
             insert.value += child[0].innerText;
@@ -35,7 +35,7 @@ function operations() {
         var op = this.getElementsByTagName('p');
         var la = expression.value.slice(-1);
         last = op[0].innerText;
-        if(la == '+' || la == '-' || la == 'X' || la == '/') {
+        if(flag == true && (la == '+' || la == '-' || la == 'X' || la == '/')) {
             expression.value = expression.value.substr(0, expression.value.length-1);
             expression.value += last;
             return;
@@ -45,7 +45,12 @@ function operations() {
     } else if(this.id == 'equals') {
         var str = expression.value + insert.value;
         last = '=';
-        insert.value = eval(str.replace(/X/gi, "*"));
+        var r_value = eval(str.replace(/X/gi, "*"));
+        if(Number.isSafeInteger(r_value)) {
+            insert.value = r_value;
+        } else {
+            insert.value = 'ERROR';
+        }
         expression.value = str + last;
         flag = true;
     }
