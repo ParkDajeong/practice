@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+  <h2>JS Calendar</h2>
+  <div id="box">
+    <div id="today">
+      <div id="day">
+      </div>
+      <div id="date">
+      </div>
+    </div>
+    <div id="calendar-wrap">
+      <table id="calendar">
+        <thead>
+          <tr>
+            <th onclick="move_month(-1)">&lt;</th>
+            <th id="info" colspan="5"></th>
+            <th onclick="move_month(1)">&gt;</th>
+          </tr>
+          <tr>
+            <th style="color:Crimson;">일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th style="color:MediumBlue;">토</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</body>
+<script src="calendar.js"></script>
+</html>

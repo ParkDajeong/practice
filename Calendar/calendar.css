@@ -1,0 +1,55 @@
+#box {
+    display: flex;
+    width: 750px;
+}
+
+#today {
+    text-align: center;
+    flex: 1;
+    padding-top: 70px;
+}
+
+#day {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+#date {
+    font-size: 9em;
+    margin-top: 35px;
+}
+
+#calendar-wrap {
+    flex: 1;
+}
+
+#calendar {
+    width: 100%;
+    text-align: center;
+}
+
+#calendar td {
+    height: 50px;
+}
+
+thead > tr {
+    height: 35px;
+}
+
+thead > tr:first-child {
+    font-size: 17px;
+}
+
+.active {
+    background-color: gold;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.sunday {
+    color: firebrick;
+}
+
+.saturday {
+    color: navy;
+}
