@@ -12,6 +12,7 @@ h1 {
     padding: 25px;
     margin: 0 auto;
     width: 550px;
+    min-height: 500px;
 }
 
 #input-box {

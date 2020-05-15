@@ -2,9 +2,13 @@ var input = document.getElementById("newTask");
 var insertBtn = document.getElementById("insert");
 var listBox = document.getElementById("list-box");
 
-var chkBox = document.getElementsByClassName("check");
-var deleteBtn = document.getElementsByClassName("delete");
-var list = document.getElementsByClassName("list");
+// 기본 테스크 추가
+window.onload = function() {
+    input.value = "GoodPlace 103 #1~6 쉐도잉";
+    addTask();
+    input.value = "to-do list 구현 마무리"
+    addTask();
+}
 
 // ADD 버튼 활성화 함수
 var activateBtn = function() {
@@ -22,56 +26,80 @@ var enterTask = function(e) {
     }
 };
 
+// 클래스를 추가한 element 생성 후, 리턴
+var makeElement = function(tagName, className) {
+    var el = document.createElement(tagName);
+    el.setAttribute("class", className);
+
+    return el;
+}
+
 // 투두리스트에 테스크 추가
 var addTask = function() {
     var todo = input.value;
     input.value = "";
 
-    var div_list = document.createElement("div");
-    div_list.setAttribute("class", "list");
+    // <div class="list">
+    var div_list = makeElement("div", "list");
     listBox.appendChild(div_list);
 
-    var div_chkBox = document.createElement("div");
-    div_chkBox.setAttribute("class", "chkBox");
+    // <div class="chkBox">
+    var div_chkBox = makeElement("div", "chkBox");
     div_list.appendChild(div_chkBox);
 
+    // <label>
     var label = document.createElement("label");
     div_chkBox.appendChild(label);
 
-    var input_chk = document.createElement("input");
+    // <input type="checkbox" class="check">
+    var input_chk = makeElement("input", "check");
     input_chk.setAttribute("type", "checkbox");
-    input_chk.setAttribute("class", "check");
     label.appendChild(input_chk);
 
-    var div_todo = document.createElement("div");
-    div_todo.setAttribute("class", "to-do");
+    // <div class="to-do">
+    var div_todo = makeElement("div", "to-do");
     div_todo.innerHTML = todo;
     div_list.appendChild(div_todo);
 
-    var div_delete = document.createElement("div");
-    div_delete.setAttribute("class", "delete");
+    // <div class="delete">
+    var div_delete = makeElement("div", "delete");
+    div_list.appendChild(div_delete);
+
+    // <img src="icon/delete.png">
     var img = document.createElement("img");
     img.setAttribute("src", "icon/delete.png");
     div_delete.appendChild(img);
-    div_list.appendChild(div_delete);
 
+    // 이벤트 추가
     input_chk.addEventListener("click", completeTask);
     div_list.addEventListener("mouseover", showDeleteBtn);
     div_list.addEventListener("mouseout", showDeleteBtn);
     div_delete.addEventListener("click", deleteTask);
 };
 
+// 체크/체크 해제된 할 일 이동
+var moveTask = function(doneTask, move) {
+    if(move === "down"){
+      listBox.appendChild(doneTask);
+    } else {
+      listBox.prepend(doneTask);
+    }
+}
+
 // 할 일 완료 처리
 var completeTask = function() {
     var label = this.parentNode;
-    var task = label.parentNode.nextElementSibling;
+    var task = label.parentNode.parentNode;
+    var text = task.querySelector(".to-do");
 
     if(this.checked) {
       label.classList.add("checked");
-      task.classList.add("complete");
+      text.classList.add("complete");
+      moveTask(task, "down");
     } else {
       label.classList.remove("checked");
-      task.classList.remove("complete");
+      text.classList.remove("complete");
+      moveTask(task, "up");
     }
 };
 
@@ -87,7 +115,7 @@ var showDeleteBtn = function(e) {
 }
 
 // 할 일 삭제
-var deleteTask = function() {\
+var deleteTask = function() {
     var parent = this.parentNode;
     parent.remove();
 };
@@ -95,9 +123,3 @@ var deleteTask = function() {\
 input.addEventListener("input", activateBtn);
 input.addEventListener("keydown", enterTask);
 insertBtn.addEventListener("click", addTask);
-// for(var i=0; i<chkBox.length; i++) {
-//     chkBox[i].addEventListener("click", completeTask);
-//     list[i].addEventListener("mouseover", showDeleteBtn);
-//     list[i].addEventListener("mouseout", showDeleteBtn);
-//     deleteBtn[i].addEventListener("click", deleteTask);
-// }
