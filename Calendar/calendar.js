@@ -43,7 +43,7 @@ function create_calendar() {
             row = tbody.insertRow();
         }
         var cell = row.insertCell();
-        cell.innerHTML = i
+        cell.innerHTML = i;
         cell.addEventListener("click", clickDate);
 
         if(i === today.getDate()) {
