@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    const cities = [];
+    //XMLHttpRequest 대신 간단하게 Fetch 사용 가능
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(myJson => cities.push(...myJson)); //펼침 연산자
+
+    const search = document.querySelector(".search");
+    const suggestions = document.querySelector(".suggestions");
+
+    const matchData = function(input, cities) {
+      //cities.filter(city => city["city"].includes(input) || city["state"].includes(input));
+      //정규식 사용
+      // g : 전체 판별. 처음 일치된 문자에서 멈추지 않고, 문자열 전체를 판별
+      // i : 대소문자 무시.
+      const regex = new RegExp(input, "gi");
+      // match() 는 문자열이 정규식과 매치되는지 검색하여 배열로 반환.
+      return cities.filter(city => city.city.match(regex) || city.state.match(regex));
+    }
+
+    const numberWithCommas = function(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    const showSearchData = function() {
+      const result = matchData(this.value, cities); //전역변수가 있는데, 따로 매개변수로 넣는 이유는?? ==> 원본 보호를 위해서 인것 같다.
+      const html = result.map(city => {
+        const regex = new RegExp(this.value, 'gi');
+        const matchedCities = city.city.replace(regex, `<span class="hl">${this.value}</span>`); //모두 소문자로 처리됨.
+        //console.log(matchedCities);
+        const matchedStates = city.state.replace(regex, `<span class="hl">${this.value}</span>`);
+        return `
+          <li>
+            <sapn class="name">${matchedCities}, ${matchedStates} </sapn>
+            <span class="population">${numberWithCommas(city.population)}</span>
+          </li>
+        `
+      }).join("");
+      //console.log(html);
+      suggestions.innerHTML = html;
+    }
+    search.addEventListener("input", showSearchData);
+</script>
+</body>
+</html>
