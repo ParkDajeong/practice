@@ -6,41 +6,78 @@
 </head>
 <body>
 
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <p onClick="makeGreen()" >×BREAK×DOWN×</p>
 
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const p = document.querySelector('p');
 
     function makeGreen() {
-      const p = document.querySelector('p');
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
 
     // Regular
+    console.log("푸항항 ꉂꉂ(ᴖᗜᴖ*)");
 
     // Interpolated
+    console.log("%s is %d years old.", dogs[1].name, dogs[1].age);
 
     // Styled
+    console.log("%c찾았다! %cOH MY GIRL!", "font-weight: bold; color: #eea8cc", "background-color: #efe59d");
 
     // warning!
+    console.warn("I warned you.");
 
     // Error :|
+    console.error(`${dogs[0].name} is not ${dogs[1].age} years old.`);
 
     // Info
+    console.info("We are not human. We are dogs.", dogs);
 
     // Testing
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+
+    // Debug
+    // log()와 같은 레벨이고, 호환성을 위한 추가된 별칭인 것 같다.
+    // 크롬에서는 기본적으로 숨겨져서 안 보임.
+    console.debug("console.debug()와 console.log()의 차이점이 뭐지?3?");
 
     // clearing
+    //console.clear();
 
     // Viewing DOM Elements
+    console.log("console.log() :", p);
+    console.log("console.dir() : ▼▼ 하단 ▼▼")
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+        // console.group()은 펼쳐진 상태로 출력
+        // console.groupCollapsed()는 접힌 상태로 출력
+        console.groupCollapsed(dog.name);
+        console.log(`This is ${dog.name}.`);
+        console.log(`${dog.name} is ${dog.age} years old.`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd();
+    });
 
     // counting
+    console.count("mimi");
+    console.count("hermione");
+    console.count("mimi");
+    console.count("mimi");
+    console.count("hermione");
 
     // timing
+    console.time("loop time");
+    for(let i=0; i<5000; i++) {
+        for(let j=0; j<=100; j++) {}
+    }
+    console.timeEnd("loop time");
 
+    // table
+    console.table(dogs);
   </script>
 </body>
 </html>
