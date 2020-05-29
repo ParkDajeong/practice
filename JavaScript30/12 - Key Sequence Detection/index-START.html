@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+  const keyArray = [];
+  const secretWord = "hermione"
+
+  function printKeyData(e) {
+      console.log(e.key);
+      if(keyArray.length >= secretWord.length) keyArray.shift();
+      keyArray.push(e.key);
+      console.log(keyArray);
+
+      if(keyArray.join("") == secretWord){
+          cornify_add();
+          console.log("%cCorrect!!", "font-weight: bold; color: red");
+      }
+  }
+  window.addEventListener("keyup", printKeyData);
+</script>
+</body>
+</html>
