@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS Reference VS Copy</title>
+  </head>
+  <body>
+    <script>
+      // start with strings, numbers and booleans
+      const str = "hello";
+      const num = 20;
+      const isAdult = true;
+      // Let's say we have an array
+      const players = ["Wes", "Sarah", "Ryan", "Poppy"];
+
+      // and we want to make a copy of it.
+      const people = players;
+
+      // You might think we can just do something like this:
+      people[2] = "Hermione";
+
+      // however what happens when we update that array?
+      // now here is the problem!
+      // 참조형 변수의 일반적인 대입 - 얕은 복사
+      console.group("const people = players");
+      console.log("players :", players); // ["Wes", "Sarah", "Hermione", "Poppy"]
+      console.log("people :", people); // ["Wes", "Sarah", "Hermione", "Poppy"]
+      console.groupEnd();
+      // oh no - we have edited the original array too!
+      // Why? It's because that is an array reference, not an array copy. They both point to the same array!
+      // So, how do we fix this? We take a copy instead!
+      const students = ["Harry", "Hermione", "Ron"];
+
+      // one way
+      // Array.prototype.slice() - 깊은 복사
+      const array2 = students.slice(0);
+      array2.push("Draco");
+      array2[0] = "hahahahahaha";
+
+      console.group("Array.prototype.slice()");
+      console.log("students :", students);
+      console.log("array2 :", array2);
+      console.groupEnd();
+
+      // or create a new array and concat the old one in
+      // Array.prototype.concat() - 깊은 복사
+      const newArray = [];
+      const concatArray = newArray.concat(students);
+      concatArray.push("new guy");
+      concatArray[0] = "helloooo";
+
+      console.group("Array.prototype.concat()");
+      console.log("students :", students);
+      console.log("concatArray :", concatArray);
+      console.groupEnd();
+
+      // or use the new ES6 Spread
+      // ES6 펼침 연산자 [...Array] - 깊은 복사
+      const spread = [...students];
+      spread[0] = "Luna LoveGood";
+
+      console.group("ES6 Spread(...) Operator [...Array]");
+      console.log("students :", students);
+      console.log("spread :", spread);
+      console.groupEnd();
+      console.log("==============================================================");
+      // now when we update it, the original one isn't changed
+      // The same thing goes for objects, let's say we have a person object
+      // with Objects
+      const person = {
+        name: "Wes Bos",
+        age: 80,
+      };
+
+      // and think we make a copy:
+      // Object.assign() - 얕은 복사
+      const copyObj = Object.assign(person);
+      copyObj.sex = "female";
+
+      console.group("Object.assign()");
+      console.log("person :", person);
+      console.log("copyObj :", copyObj);
+      console.groupEnd();
+
+      // how do we take a copy instead?
+      // JSON.parse(JSON.stringify()) - 깊은 복사
+      const favorites = {
+        person: "Hermione Granger",
+        fruit: "mandarin",
+      };
+      const newObj = JSON.parse(JSON.stringify(favorites));
+      newObj.netflix = "Anne with an E";
+
+      console.group("JSON.parse(JSON.stringify())");
+      console.log("favorites :", favorites);
+      console.log("newObj :", newObj);
+      console.groupEnd();
+
+      // We will hopefully soon see the object ...spread
+      // ES6 펼침 연산자 {...Object} - 깊은 복사
+      const objs = { ...newObj };
+      objs.singer = "Taylor Swift";
+
+      console.group("ES6 Spread Operator {...Object}");
+      console.log("newObj :", newObj);
+      console.log("objs :", objs);
+      console.groupEnd();
+      // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    </script>
+  </body>
+</html>
