@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mouse Shadow</title>
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable>🔥WOAH!</h1>
+    </div>
+
+    <style>
+      html {
+        color: black;
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+      }
+
+      h1 {
+        text-shadow: 10px 10px 0 rgba(0, 0, 0, 1);
+        font-size: 100px;
+      }
+    </style>
+
+    <script>
+      const hero = document.querySelector(".hero");
+      const text = hero.querySelector("h1");
+      const walk = 500; // 500px
+
+      function shadow(e) {
+        //offsetWidth, offsetHeight : 엘리먼트의 전체 크기(패딩, 보더, 스크롤바 포함)
+        const { offsetWidth: width, offsetHeight: height } = hero;
+        //offsetX, offsetY : 이벤트 대상을 기준으로 한 마우스의 위치(이벤트 대상의 왼쪽 모서리 좌표가 0)
+        let { offsetX: x, offsetY: y } = e;
+
+        // console.log("this : ", this);
+        // console.log("e.target : ", e.target);
+
+        // this == .hero
+        // 마우스가 h1에 들어가면 true가 되는 조건문
+        // 마우스가 h1에 들어가는 순간 e.target이 변경되어 h1을 기준으로 한 좌표가 반환.
+        //console.log("x: ", x, " y: ", y);
+        if (this !== e.target) {
+          x = x + e.target.offsetLeft; // offsetLeft : 해당 엘리먼트의 왼쪽 여백의 값
+          y = y + e.target.offsetTop; // offsetTop : 해당 엘리멘트의 상단 여백의 값
+        }
+
+        const xWalk = Math.round((x / width) * walk - walk / 2);
+        const yWalk = Math.round((y / height) * walk - walk / 2);
+
+        text.style.textShadow = `
+          ${xWalk}px ${yWalk}px 0 rgba(255,0,255,0.7),
+          ${xWalk * -1}px ${yWalk}px 0 rgba(0,255,255,0.7),
+          ${yWalk}px ${xWalk * -1}px 0 rgba(0,255,0,0.7),
+          ${yWalk * -1}px ${xWalk}px 0 rgba(0,0,255,0.7)
+        `;
+      }
+
+      hero.addEventListener("mousemove", shadow);
+    </script>
+  </body>
+</html>
