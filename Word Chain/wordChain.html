@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>끝말잇기</title>
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/wordChain.css" />
+    <script src="script/wordChain.js" defer></script>
+    <script src="https://kit.fontawesome.com/d0b8e988b1.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <section>
+      <div class="life">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="word"></div>
+      <input type="text" name="input-word" placeholder="단어를 입력하세요" />
+
+      <!-- Modal - GameOver -->
+      <div class="modal">
+        <div class="modal-content">
+          <p></p>
+          <button type="button" class="restart">다시 시작</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
