@@ -1,11 +1,14 @@
 :root {
   --font-large: 5em;
   --font-medium: 18px;
+
+  --white-color: #f9f7f7;
+  --main-color: #dbe2ef;
 }
 
 section {
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: var(--main-color);
   text-align: center;
 }
 
@@ -13,6 +16,7 @@ section {
 section .title {
   padding: 20% 0 25px;
   font-size: var(--font-large);
+  font-family: "Black Han Sans", sans-serif;
 }
 
 /* Buttons */
@@ -20,10 +24,11 @@ section .btns button {
   padding: 15px 25px;
   margin: 0 5px;
   font-size: var(--font-medium);
+  color: var(--white-color);
   background: none;
   border: none;
   outline: none;
-  background-color: cornflowerblue;
+  background-color: #3f72af;
   border-radius: 5px;
   transition: all ease 0.3s;
 }
@@ -31,10 +36,6 @@ section .btns button {
 section .btns button:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
-
-/* Start Button */
-.btns .start {
 }
 
 /* Modal */

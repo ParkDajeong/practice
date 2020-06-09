@@ -1,18 +1,26 @@
 :root {
   --font-large: 5em;
   --font-medium: 18px;
+
+  --white-color: #f9f7f7;
+  --back-color: #dbe2ef;
+  --red-color: #f06868;
+  --blue-color: #3f72af;
+  --green-color: #76b39d;
 }
 
 section {
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: var(--back-color);
   text-align: center;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* Word */
 section .word {
   padding: 20% 0 25px;
   font-size: var(--font-large);
+  font-family: "Black Han Sans", sans-serif;
 }
 
 /* Input Word */
@@ -20,6 +28,19 @@ input[name="input-word"] {
   padding: 10px;
   font-size: var(--font-medium);
   width: 15%;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.correct {
+  box-shadow: 0px 0px 15px 2px var(--green-color);
+}
+
+.wrong {
+  box-shadow: 0px 0px 15px 2px var(--red-color);
+  animation: shake 0.2s ease-in 0s 5;
 }
 
 /* Life */
@@ -28,9 +49,18 @@ input[name="input-word"] {
   top: 0;
   right: 0;
   font-size: 3em;
-  padding: 15px 20px;
   display: flex;
   flex-direction: row-reverse;
+  padding: 15px 20px;
+  color: var(--red-color);
+}
+
+.life i {
+  padding-left: 5px;
+}
+
+.life .decrease {
+  font-weight: 100;
 }
 
 /* Modal */
@@ -50,8 +80,40 @@ input[name="input-word"] {
 /* Modal Content */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 30%;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.modal-content .restart {
+  background-color: #709fb0;
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 10px 0 16px;
+  transition: all ease 0.3s;
+}
+
+.modal-content .restart:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.3rem;
+  }
+  75% {
+    margin-left: -0.3rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
 }
