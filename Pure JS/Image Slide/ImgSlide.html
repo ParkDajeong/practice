@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="ImgSlide.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <script type="text/javascript" src="ImgSlide.js" defer></script>
+    <title>Imaga Slide</title>
+  </head>
+  <body>
+    <h2>하단 버튼을 이용하여 이동</h2>
+    <div class="slider first">
+      <div class="imgWrap">
+        <ul class="imgList">
+          <li data-img="0">img1</li>
+          <li data-img="1">img2</li>
+          <li data-img="2">img3</li>
+          <li data-img="3">img4</li>
+        </ul>
+      </div>
+
+      <div class="dot-controler">
+        <span class="dot" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+      </div>
+    </div>
+
+    <h2>자동 + 양 옆 화살표를 이용하여 이동</h2>
+    <div class="slider second">
+      <div class="imgWrap">
+        <ul class="imgList">
+          <li data-img="0">img1</li>
+          <li data-img="1">img2</li>
+          <li data-img="2">img3</li>
+          <li data-img="3">img4</li>
+        </ul>
+      </div>
+      <span class="btn left" data-move="-1">&lt;</span>
+      <span class="btn right" data-move="1">&gt;</span>
+    </div>
+
+    <h2>양 옆에 반씩 보이는</h2>
+  </body>
+</html>
