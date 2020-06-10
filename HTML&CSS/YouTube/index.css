@@ -1,0 +1,148 @@
+:root {
+  /* Color */
+  --red-color: #ff0000;
+  --black-color: #212121;
+  --gray-color: #606060;
+  --light-gray-color: #f9f9f9;
+  --border-gray-color: #ccc;
+
+  /* Font */
+  --font-size-large: 20px;
+  --font-size-middle: 16px;
+  --font-size-small: 10px;
+
+  /* Size */
+  --avatar-size: 40px;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+i.fas,
+i.fab {
+  color: var(--gray-color);
+  font-size: var(--font-size-large);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+}
+
+header #start {
+  font-size: var(--font-size-large);
+}
+
+header #start .logo {
+  color: var(--black-color);
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+header #start .logo i {
+  color: var(--red-color);
+}
+
+header #searchBox {
+  width: 35%;
+  display: flex;
+}
+
+header #searchBox input[name="search"] {
+  padding: 5px 8px;
+  flex: 1;
+  flex-basis: 80%;
+  border: 1px solid var(--border-gray-color);
+  font-size: var(--font-size-middle);
+}
+
+header #searchBox button {
+  flex: 1;
+  background-color: var(--light-gray-color);
+  border: 1px solid var(--border-gray-color);
+  border-left: none;
+}
+
+header #icons i {
+  padding: 0 13px;
+}
+
+/* Content */
+#content {
+  display: flex;
+}
+
+/* Content - Navbar */
+#content nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#content nav ul li {
+  padding: 12px 6px;
+}
+
+#content nav ul li button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--font-size-small);
+  line-height: 2rem;
+}
+
+#content nav ul li .active {
+  color: var(--red-color);
+}
+
+/* Content - Video List */
+#content #videoBox {
+  background-color: var(--light-gray-color);
+  flex: 1;
+  padding: 30px;
+}
+
+#content #videoBox .list-title {
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  margin: 8px 0 0 15px;
+}
+
+#content #videoBox .videoList {
+  margin-top: 10px;
+}
+
+#content #videoBox .videoList .item {
+}
+
+#content #videoBox .videoList .item .thumbnail {
+  width: 100%;
+}
+
+#content #videoBox .videoList .item .thumbnail img {
+  width: 100%;
+}
+
+#content #videoBox .videoList .item .meta img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
