@@ -102,3 +102,55 @@ ul li {
 .second .right {
   right: 5px;
 }
+
+/*third*/
+.third {
+  width: fit-content;
+}
+
+.third .imgWrap {
+  width: 365px;
+  height: 236px;
+  overflow: hidden;
+}
+
+.third .imgWrap .imgList {
+  display: flex;
+}
+
+.third .imgWrap .imgList li {
+  background-color: steelblue;
+}
+
+.third .pagination {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+}
+
+.third .pagination .page {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  margin: 0 2.5px;
+}
+
+.third .arrow {
+  font-size: 2.5em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.third .pre {
+  left: 5px;
+}
+
+.third .next {
+  right: 5px;
+}

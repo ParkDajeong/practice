@@ -13,11 +13,27 @@
 
   /* Size */
   --avatar-size: 40px;
+
+  --grid-items-per-row: 3;
+  --grid-items-margin: 10px;
+
+  --grid-items-min-width: 240px;
+  --grid-items-max-width: 320px;
 }
 
 * {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -86,6 +102,7 @@ header #icons i {
 /* Content */
 #content {
   display: flex;
+  flex: 1;
 }
 
 /* Content - Navbar */
@@ -127,10 +144,17 @@ header #icons i {
 }
 
 #content #videoBox .videoList {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 
 #content #videoBox .videoList .item {
+  flex: 1;
+  width: calc(100% / var(--grid-items-per-row) - var(--grid-items-margin) - 0.01px);
+  min-width: var(--grid-items-min-width);
+  max-width: var(--grid-items-max-width);
+  margin: var(--grid-items-margin);
 }
 
 #content #videoBox .videoList .item .thumbnail {
@@ -141,8 +165,18 @@ header #icons i {
   width: 100%;
 }
 
+#content #videoBox .videoList .item .meta {
+  display: flex;
+}
+
 #content #videoBox .videoList .item .meta img {
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: 50%;
+}
+
+@media screen (max-width: 768px) {
+  :root {
+    --grid-items-per-row: 4;
+  }
 }

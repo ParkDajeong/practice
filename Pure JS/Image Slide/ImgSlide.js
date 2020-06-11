@@ -50,3 +50,14 @@ function moveSlide02() {
 }
 
 arrowBtns.forEach((el) => el.addEventListener("click", moveSlide02));
+
+///////////////////////////////////////////////////////////////////////////////
+
+const thList = document.querySelector(".third .imgList");
+const pages = document.querySelectorAll(".third .page");
+
+function controlPagination() {
+  console.log(this);
+}
+
+pages.forEach((elem) => elem.addEventListener("click", controlPagination));
