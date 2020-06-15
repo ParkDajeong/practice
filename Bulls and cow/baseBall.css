@@ -1,0 +1,36 @@
+section {
+  display: flex;
+}
+
+section .first {
+  padding-right: 40px;
+}
+
+section .frist input {
+  outline: none;
+}
+
+section .first .result {
+  padding: 15px 5px;
+}
+
+table {
+  width: 350px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table th,
+table td {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+table tr td:first-child {
+  width: 15%;
+}
+
+table tr td:last-child {
+  width: 53%;
+}
