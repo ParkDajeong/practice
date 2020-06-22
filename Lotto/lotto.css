@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.wrapper {
+  width: fit-content;
+  margin-bottom: 40px;
+}
+
+.wrapper #lottoForm {
+  width: max-content;
+}
+
+.wrapper #lottoForm input {
+  width: 40px;
+  text-align: center;
+}
+
+.wrapper #lottoForm #bonus {
+  margin-left: 10px;
+}
+
+.wrapper #lottoForm .alert {
+  display: none;
+  color: red;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.wrapper #lottoForm .alert.active {
+  display: block;
+}
+
+.wrapper #lottoForm .btnWrap {
+  display: flex;
+}
+
+.wrapper #lottoForm .btnWrap .btn {
+  height: 25px;
+  margin: 0 3px;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+.wrapper #lottoForm .btnWrap .btn.draw {
+  flex: 2;
+}
+
+.wrapper #lottoForm .btnWrap .btn.allClear {
+  flex: 1;
+}
+
+/* 추첨 결과 */
+.wrapper .result span {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 58px;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.wrapper .result .ball {
+  border-radius: 50%;
+  margin: 0 3px;
+  color: #ffffff;
+}
+
+.wrapper .result .ball.yellow {
+  background-color: #fcc43d;
+}
+
+.wrapper .result .ball.blue {
+  background-color: #8cc6e7;
+}
+
+.wrapper .result .ball.red {
+  background-color: #f18d80;
+}
+
+.wrapper .result .ball.purple {
+  background-color: #a7a2de;
+}
+
+.wrapper .result .ball.green {
+  background-color: #6bce9e;
+}

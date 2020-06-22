@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="lotto.css" />
+    <script src="lotto.js" defer></script>
+    <title>LOTTO</title>
+  </head>
+  <body>
+    <h1>로또 번호 입력</h1>
+    <section class="wrapper">
+      <form name="lottoForm" id="lottoForm">
+        <input type="text" name="num1" maxlength="2" required />
+        <input type="text" name="num2" maxlength="2" required />
+        <input type="text" name="num3" maxlength="2" required />
+        <input type="text" name="num4" maxlength="2" required />
+        <input type="text" name="num5" maxlength="2" required />
+        <input type="text" name="num6" maxlength="2" required />
+        <input type="text" name="bonus" id="bonus" maxlength="2" required />
+        <div class="alert">중복된 숫자가 있습니다. 수정해주세요.</div>
+        <div class="btnWrap">
+          <button type="submit" class="btn draw">추첨하기</button>
+          <button type="button" class="btn allClear">초기화</button>
+        </div>
+      </form>
+    </section>
+    <h1>추첨 결과</h1>
+    <section class="wrapper">
+      <div class="result"></div>
+    </section>
+  </body>
+</html>
