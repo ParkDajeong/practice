@@ -17,10 +17,6 @@
   text-align: center;
 }
 
-.wrapper #lottoForm #bonus {
-  margin-left: 10px;
-}
-
 .wrapper #lottoForm .alert {
   display: none;
   color: red;
@@ -87,4 +83,9 @@
 
 .wrapper .result .ball.green {
   background-color: #6bce9e;
+}
+
+.wrapper .rank {
+  font-size: 16pt;
+  padding: 20px 10px;
 }

@@ -3,6 +3,7 @@ const numBox = document.querySelectorAll("#lottoForm input");
 const clearBtn = document.querySelector(".allClear");
 const alert = document.querySelector(".alert");
 const result = document.querySelector(".result");
+const rankBox = document.querySelector(".rank");
 let isEnd = false;
 
 // 입력한 숫자 중복 체크
@@ -10,11 +11,12 @@ function hasDuplicates(array) {
   return new Set(array).size !== array.length;
 }
 
-// input 모두 초기화
+// 모두 초기화
 function allClear() {
   numBox.forEach((box) => (box.value = null));
   numBox[0].focus();
   result.innerHTML = "";
+  rankBox.innerHTML = "";
   isEnd = false;
 }
 
@@ -30,8 +32,8 @@ function inputLottoNumbers(e) {
     return;
   }
 
-  console.log("입력한 로또 번호 :", inputNums);
-  pickNumber();
+  // console.log("입력한 로또 번호 :", inputNums);
+  pickNumber(inputNums);
 }
 
 // 포커스 이동
@@ -51,19 +53,49 @@ function moveFocus() {
 }
 
 // 로또 번호 추첨
-function pickNumber() {
+function pickNumber(inputNums) {
   const shuffle = shuffleNumber();
   const lotto = shuffle.slice(0, 6);
   const bonus = shuffle[shuffle.length - 1];
+  let cnt = 0;
+  let hasBonus = false;
 
   lotto.forEach((num) => result.appendChild(createSpan(num, "ball")));
   result.appendChild(createSpan("+", "plusText"));
   result.appendChild(createSpan(bonus, "ball"));
 
+  inputNums.forEach((num) => {
+    if (lotto.includes(Number(num))) cnt++;
+    if (Number(num) === bonus) hasBonus = true;
+  });
+
+  let rank = "";
+  switch (cnt) {
+    case 6:
+      rank = "1등";
+      break;
+    case 5:
+      rank = hasBonus ? "2등" : "3등";
+      break;
+    case 4:
+      rank = "4등";
+      break;
+    case 3:
+      rank = "5등";
+      break;
+  }
+
+  if (rank === "") {
+    rankBox.textContent = "아쉽지만 다음 기회에...";
+  } else {
+    rankBox.textContent = `축하합니다. ${rank} 입니다.`;
+  }
+
   isEnd = true;
 
-  console.log("당첨 :", lotto);
-  console.log("보너스 번호 :", bonus);
+  // console.log("당첨 :", lotto);
+  // console.log("보너스 번호 :", bonus);
+  // console.log("몇 개?", cnt);
 }
 
 // <span>태그 생성 함수
