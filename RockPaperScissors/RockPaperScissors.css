@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+#score {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 250px;
+  height: 150px;
+}
+
+#score th,
+td {
+  border: 1px solid black;
+  width: 50%;
+}
+
+#score td {
+  height: 75%;
+  font-size: 35pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+#game {
+  width: 270px;
+  height: fit-content;
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#game .imgBox {
+  position: relative;
+  width: 100%;
+  height: 168px;
+}
+
+#game .imgBox img {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+}
+
+#game .btns {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+#game .btns li {
+  margin: 0 10px;
+}
+
+#game .btns li button {
+  padding: 5px 20px;
+  font-size: 15px;
+}
+
+#game .result {
+  font-size: 14pt;
+  font-weight: bold;
+}

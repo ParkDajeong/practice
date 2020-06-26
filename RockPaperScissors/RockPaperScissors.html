@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="RockPaperScissors.css" />
+    <script src="RockPaperScissors.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>삼세판 가위바위보</h1>
+    <table id="score">
+      <tr>
+        <th>컴퓨터</th>
+        <th>유저</th>
+      </tr>
+      <tr>
+        <td class="com">0</td>
+        <td class="user">0</td>
+      </tr>
+    </table>
+    <section id="game">
+      <div class="imgBox">
+        <img src="rock.png" alt="바위" />
+        <img src="scissors.png" alt="가위" />
+        <img src="paper.png" alt="보" />
+      </div>
+      <ul class="btns">
+        <li>
+          <button type="button" name="scissors">가위</button>
+        </li>
+        <li>
+          <button type="button" name="rock">바위</button>
+        </li>
+        <li>
+          <button type="button" name="paper">보</button>
+        </li>
+      </ul>
+      <span class="result"></span>
+    </section>
+  </body>
+</html>
