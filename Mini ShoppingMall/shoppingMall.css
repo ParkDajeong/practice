@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-family: "Pangolin", cursive;
+}
+
+body {
+  background-color: #373c45;
+  padding: 50px;
+}
+
+header {
+  text-align: center;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+header .logo {
+  margin: 20px 0;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  padding: 0 10px;
+}
+
+header nav ul li button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+header nav ul li button:hover {
+  transition: all ease 0.4s;
+  transform: scale(1.2);
+}
+
+header nav ul li button.kind {
+  width: 60px;
+}
+
+header nav ul li button.kind img {
+  width: 100%;
+}
+
+header nav ul li button.color {
+  padding: 10px 15px;
+  font-size: 15.5pt;
+  border-radius: 5px;
+}
+
+header nav ul li button[name="blue"] {
+  background-color: #367cbd;
+}
+
+header nav ul li button[name="yellow"] {
+  background-color: #f7b625;
+}
+
+header nav ul li button[name="pink"] {
+  background-color: #fe7479;
+}
+
+section {
+  padding: 35px 0;
+}
+
+section #articleList {
+  margin: 0 auto;
+  padding: 0;
+  width: 550px;
+  list-style: none;
+}
+
+section #articleList .article {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 8px 35px;
+  margin: 10px 0;
+}
+
+section #articleList .article img {
+  width: 50px;
+}
+
+section #articleList .article span {
+  padding-left: 20px;
+  font-size: 14pt;
+}
