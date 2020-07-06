@@ -7,7 +7,15 @@ function Navbar(props) {
   for (let i = 0; i < data.length; i++) {
     lists.push(
       <li key={data[i].id}>
-        <a href={"/content/" + data[i].id}>{data[i].title}</a>
+        <a
+          href={"/content/" + data[i].id} //
+          onClick={(e) => {
+            e.preventDefault();
+            props.onChangePage(data[i].id);
+          }}
+        >
+          {data[i].title}
+        </a>
       </li>
     );
   }

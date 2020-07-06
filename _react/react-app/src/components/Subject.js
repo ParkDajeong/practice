@@ -4,7 +4,17 @@ function Subject(props) {
   return (
     //컴포넌트를 만들 때, 하나의 최상위 태그만 사용해야 한다.
     <header>
-      <h1>{props.title}</h1>
+      <h1>
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            props.onChangeMode("welcome");
+          }}
+        >
+          {props.title}
+        </a>
+      </h1>
       {props.sub}
     </header>
   );
