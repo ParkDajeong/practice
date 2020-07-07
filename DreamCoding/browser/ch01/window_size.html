@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <title>size</title>
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+      }
+
+      ul {
+        display: inline-block;
+        background-color: lightsteelblue;
+        font-size: 18pt;
+      }
+
+      ul li span {
+        font-size: 20pt;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>window.screen: <span id="screen"></span></li>
+      <li>window.outer: <span id="outer"></span></li>
+      <li>window.inner: <span id="inner"></span></li>
+      <li>documentElement.clientWidth/Height: <span id="client"></span></li>
+    </ul>
+  </body>
+  <script>
+    const screens = document.querySelector("#screen");
+    const outer = document.querySelector("#outer");
+    const inner = document.querySelector("#inner");
+    const client = document.querySelector("#client");
+
+    function printSize() {
+      // window.screen: 클라이언트의 모니터 크기
+      // 따라서, 브라우저의 크기가 변해도 값이 변하지 X.
+      screens.textContent = `${window.screen.width}, ${window.screen.height}`;
+      // window.outer: 브라우저의 크기
+      // 브라우저의 크기가 변하면 당연히 바뀜.
+      outer.textContent = `${window.outerWidth}, ${window.outerHeight}`;
+      // window.inner: (기타 브라우저 관련 제외)스크롤은 포함한 문서의 크기
+      inner.textContent = `${window.innerWidth}, ${window.innerHeight}`;
+      // documentElement.clientWidth: 해당 엘리먼트의 (margin과 border 값 제외)padding 값까지만 적용된 크기
+      // html 엘리먼트의 경우, 스크롤을 제외한 문서 그 자체 크기
+      client.textContent = `${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+    }
+
+    printSize();
+
+    window.addEventListener("resize", printSize);
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div:not(.btnBox) {
+        background-color: blanchedalmond;
+        width: 150px;
+        height: 150px;
+        border-radius: 3px;
+        margin-bottom: 4px;
+      }
+      div.special {
+        background-color: darkseagreen;
+      }
+      .btnBox {
+        position: fixed;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btnBox">
+      <button type="button" class="scroll-by">Scroll by 100px(y)</button>
+      <button type="button" class="scroll-to">Scroll to 100px(y)</button>
+      <button type="button" class="scroll-into">Scroll into special</button>
+    </div>
+  </body>
+  <script>
+    const body = document.querySelector("body");
+    const scroll_by = document.querySelector(".scroll-by");
+    const scroll_to = document.querySelector(".scroll-to");
+    const scroll_into = document.querySelector(".scroll-into");
+
+    for (let i = 0; i < 12; i++) {
+      const div = document.createElement("div");
+      if (i === 7) div.className = "special";
+
+      body.appendChild(div);
+    }
+
+    const special = document.querySelector(".special");
+    special.addEventListener("click", (e) => {
+      // Element.getBoundingClientRect(): 해당 엘리먼트의 width, height 및 좌표(bottom, left 등..) 반환.
+      console.log(e.target.getBoundingClientRect());
+      // MouseEvent.clientX/Y: 현재 보이는 부분의 왼쪽 상단을 기준으로 좌표 반환.
+      console.log(`client: ${e.clientX}, ${e.clientY}`);
+      // MouseEvent.pageX/Y: 전체(보이지 않더라도) 문서의 왼쪽 상단을 기준으로 좌표 반환.
+      console.log(`page: ${e.pageX}, ${e.pageY}`);
+    });
+
+    scroll_by.addEventListener("click", (e) => window.scrollBy({ top: 100, left: 0, behavior: "smooth" }));
+    scroll_to.addEventListener("click", (e) => window.scrollTo(0, 100));
+    scroll_into.addEventListener("click", (e) => special.scrollIntoView(true));
+  </script>
+</html>
