@@ -4,6 +4,7 @@ import Subject from "./components/Subject";
 import Navbar from "./components/Navbar";
 import ReadContent from "./components/ReadContent";
 import CreateContent from "./components/CreateContent";
+import UpdateContent from "./components/UpdateContent";
 import Control from "./components/Control";
 import "./App.css";
 
@@ -14,8 +15,8 @@ function App() {
   // 첫번째 요소 : state(함수 호출 시, 입력한 값이 초깃값)
   // 두번째 요소 : state를 변경할 수 있는 함수
   const [state, setData] = useState({
-    mode: "create",
-    selected_content_id: 0,
+    mode: "welcome",
+    selected_content_id: 1,
     subject: { title: "WEB!!", sub: "world wide web!" },
     welcome: { title: "Welcome", desc: "Hello, React!!" },
     contents: [
@@ -30,10 +31,25 @@ function App() {
   // spread 연산자를 사용하여 기존 state 객체를 복사 후, 수정하고자 하는 요소를 업데이트하면 된다.
   // https://xiubindev.tistory.com/97
   const changeMode = (mode) => {
-    setData({
-      ...state,
-      mode,
-    });
+    if (mode === "delete") {
+      if (window.confirm("Really?")) {
+        const idx = state.selected_content_id - 1;
+        const contents = Array.from(state.contents);
+        contents.splice(idx, 1);
+        setData({
+          ...state,
+          mode: "welcome",
+          contents,
+          selected_content_id: 1,
+        });
+        alert("Deleted!");
+      }
+    } else {
+      setData({
+        ...state,
+        mode,
+      });
+    }
   };
 
   // push()의 경우, 원본이 변경되기 때문에 새로운 배열을 반환해주는 concat()을 쓰는 것을 권장.
@@ -44,8 +60,26 @@ function App() {
     setData({
       ...state,
       contents,
+      mode: "read",
+      selected_content_id: id,
     });
   };
+
+  const updateData = (title, desc) => {
+    const idx = state.selected_content_id - 1;
+    const contents = Array.from(state.contents);
+
+    contents[idx].title = title;
+    contents[idx].desc = desc;
+
+    setData({
+      ...state,
+      mode: "read",
+      contents,
+    });
+  };
+
+  const deleteData = () => {};
 
   // props나 state의 값이 바뀌면, 해당 component의(하위 포함) render()가 다시 호출
   let _title,
@@ -62,6 +96,9 @@ function App() {
     _content = <ReadContent title={_title} desc={_desc}></ReadContent>;
   } else if (state.mode === "create") {
     _content = <CreateContent onSubmit={addData}></CreateContent>;
+  } else if (state.mode === "update") {
+    const idx = state.selected_content_id - 1;
+    _content = <UpdateContent data={state.contents[idx]} onSubmit={updateData}></UpdateContent>;
   }
 
   return (
@@ -71,6 +108,7 @@ function App() {
         sub={state.subject.sub}
         onChangeMode={changeMode}
       ></Subject>
+
       <Navbar
         data={state.contents} //
         onChangePage={(id) => {
@@ -81,6 +119,7 @@ function App() {
           });
         }}
       ></Navbar>
+
       <Control onChangeMode={changeMode}></Control>
       {_content}
     </div>

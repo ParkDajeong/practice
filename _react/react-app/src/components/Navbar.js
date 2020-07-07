@@ -2,23 +2,25 @@ import React from "react";
 
 function Navbar(props) {
   const lists = [];
-  const data = props.data;
+  const datas = props.data;
 
-  for (let i = 0; i < data.length; i++) {
+  datas.forEach((data) => {
+    const id = data.id;
+
     lists.push(
-      <li key={data[i].id}>
+      <li key={id}>
         <a
-          href={"/content/" + data[i].id} //
+          href={`/content/${id}`}
           onClick={(e) => {
             e.preventDefault();
-            props.onChangePage(data[i].id);
+            props.onChangePage(id);
           }}
         >
-          {data[i].title}
+          {data.title}
         </a>
       </li>
     );
-  }
+  });
 
   return (
     <nav>
