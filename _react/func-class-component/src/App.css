@@ -1,0 +1,13 @@
+.container {
+  border: 5px solid seagreen;
+  margin: 5px;
+  padding: 5px;
+}
+
+p {
+  font-size: 12pt;
+}
+
+button {
+  margin-right: 5px;
+}
