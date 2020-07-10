@@ -1,0 +1,99 @@
+:root {
+  --gradient-color: linear-gradient(117deg, rgba(230, 184, 209, 1) 0%, rgba(131, 180, 236, 1) 100%);
+  --color-white: #f0eef6;
+}
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #c8cddb;
+  margin: 0;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 430px;
+  height: 680px;
+  border-radius: 20px;
+}
+
+#list header {
+  font-size: 18pt;
+  text-align: center;
+  background: var(--gradient-color);
+  border-radius: 20px 20px 0 0;
+  padding: 10px;
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+#list #items {
+  flex: 3;
+  background-color: var(--color-white);
+  font-size: 15pt;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#list #items .item {
+  display: flex;
+  padding: 8px 35px;
+}
+
+#list #items .item .list-text {
+  flex: 2;
+}
+
+#list #items .item .delete {
+  font-size: 15pt;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+#list #items .item .delete:hover {
+  color: crimson;
+  transform: scale(1.1);
+}
+
+#list footer {
+  background: var(--gradient-color);
+  border-radius: 0 0 20px 20px;
+}
+
+#list footer #listInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  font-size: 12pt;
+}
+
+#list footer .btn-wrap {
+  text-align: center;
+  padding: 8px 0;
+}
+
+#list footer .add {
+  font-size: 25pt;
+  color: var(--color-white);
+  background: black;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0 10px;
+  transition: all 200ms ease-in;
+}
+
+#list footer .add:hover {
+  transform: scale(1.1);
+}
