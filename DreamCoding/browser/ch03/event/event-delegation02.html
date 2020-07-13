@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event-Delegation</title>
+    <style>
+      .wrapper {
+        display: flex;
+      }
+      .child {
+        background-color: seagreen;
+        width: 100px;
+        height: 100px;
+        margin: 0 5px;
+        text-align: center;
+        line-height: 100px;
+        color: ghostwhite;
+        font-size: 13pt;
+      }
+      .selected {
+        background-color: goldenrod;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+    </div>
+
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+
+      wrapper.addEventListener("click", (e) => {
+        if (e.target.className !== "child") return;
+        e.target.classList.add("selected");
+      });
+    </script>
+  </body>
+</html>

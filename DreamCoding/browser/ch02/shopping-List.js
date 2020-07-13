@@ -22,7 +22,7 @@ function createItem(text) {
   span.textContent = text;
   const btn_del = createElementWithAttr("button", ["type", "class"], ["button", "delete"]);
   btn_del.innerHTML = img_delete;
-  btn_del.addEventListener("click", () => item.remove());
+  //btn_del.addEventListener("click", () => item.remove());
 
   item.appendChild(span);
   item.appendChild(btn_del);
@@ -45,5 +45,9 @@ function onAdd(e) {
   list_input.focus();
 }
 
+items.addEventListener("click", (e) => {
+  if (e.target.tagName !== "I") return;
+  e.target.parentNode.parentNode.remove();
+});
 btn_add.addEventListener("click", onAdd);
 list_input.addEventListener("keyup", onAdd);
