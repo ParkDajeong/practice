@@ -1,0 +1,107 @@
+:root {
+  --border-short-hand: 3px solid black;
+  --border-radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 600px;
+  padding-top: 20px;
+  background-image: url("img/background.png");
+  background-size: cover;
+  border-radius: 20px;
+  margin: 60px auto;
+}
+
+#game header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: #f1d7a5;
+  border: var(--border-short-hand);
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  margin-top: 8px;
+  font-size: 18pt;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: transform 300ms ease-in;
+}
+
+#game header .timer {
+  width: 130px;
+  background-color: white;
+  border: var(--border-short-hand);
+  border-radius: var(--border-radius);
+  font-size: 25pt;
+  padding: 3px 5px;
+  margin-top: 8px;
+}
+
+#game header .counting {
+  width: 60px;
+  height: 60px;
+  background-color: #e88a6d;
+  border: var(--border-short-hand);
+  border-radius: 50%;
+  font-size: 30pt;
+  margin-top: 8px;
+  color: white;
+  line-height: 60px;
+}
+
+#game .game_field {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-top: 120px;
+}
+
+#game .game_field .bug,
+#game .game_field .carrot {
+  position: absolute;
+}
+
+#game .game_field .bug:hover,
+#game .game_field .carrot:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 300ms ease-in;
+}
+
+#pop-up {
+  display: none;
+  width: 400px;
+  padding: 25px 0;
+  margin: 0 auto;
+  transform: translateY(-200%);
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+#pop-up .message {
+  display: block;
+  margin-top: 10px;
+  font-size: 40px;
+  color: white;
+}
