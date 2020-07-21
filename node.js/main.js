@@ -4,51 +4,9 @@ const url = require("url");
 const qs = require("querystring");
 const fs = require("fs");
 const dataFolder = "./data";
-
-function createDescTemplate(list, title, body) {
-  const create = "<a href='/create'>create</a>";
-  const update = `<a href='/update?id=${title}'>update</a>`;
-  const del = `
-    <form action="/process_delete" method="post" onsubmit="alert('정말 삭제하시겠습니까?')">
-      <input type="hidden" name="id" value="${title}">
-      <input type="submit" value="delete">
-    </form>
-  `;
-  return `
-    <!doctype html>
-      <html>
-      <head>
-        <title>WEB1 - ${title}</title>
-        <meta charset="utf-8">
-      </head>
-      <body>
-        <h1><a href="/">WEB</a></h1>
-        <ol>
-          ${list}
-        </ol>
-        ${title === "create" ? "" : create}
-        ${title === "Welcome" || title === "create" ? "" : update}
-        ${del}
-        ${body}
-      </body>
-      </html>
-  `;
-}
-
-function createFormTemplate(type, title = "", desc = "") {
-  return `
-    <form action="/process_${type}" method="post">
-      <p><input type="hidden" name="id" value="${title}"></p>
-      <p><input type="text" name="title" placeholder="title" value="${title}"></p>
-      <p>
-        <textarea name="description" placeholder="description">${desc}</textarea>
-      </p>
-      <p>
-        <input type="submit">
-      </p>
-    </form>
-  `;
-}
+const template = require("./lib/template.js");
+const path = require("path");
+const sanitizeHtml = require("sanitize-html");
 
 const app = http.createServer(function (request, response) {
   let _url = request.url;
@@ -67,24 +25,27 @@ const app = http.createServer(function (request, response) {
     let title = queryData.id;
     if (title === undefined) {
       title = "Welcome";
+    } else {
+      title = path.parse(queryData.id).base;
     }
     fs.readFile(`data/${title}`, "utf8", (err, desc) => {
+      const sanitizedDesc = sanitizeHtml(desc);
       const body = `
         <h2>${title}</h2>
-        <p>${desc === undefined ? "Hello, node.js" : desc}</p>
+        <p>${sanitizedDesc === undefined ? "Hello, node.js" : sanitizedDesc}</p>
       `;
-      const template = createDescTemplate(list, title, body);
+      const tmpl = template.descTemplate(list, title, body);
       response.writeHead(200);
-      response.end(template);
+      response.end(tmpl);
     });
   }
   // create
   else if (pathname === "/create") {
     title = "create";
-    const body = createFormTemplate("create");
-    const template = createDescTemplate(list, title, body);
+    const body = template.formTemplate("create");
+    const tmpl = template.descTemplate(list, title, body);
     response.writeHead(200);
-    response.end(template);
+    response.end(tmpl);
   }
   // create 처리
   else if (pathname === "/process_create") {
@@ -106,12 +67,12 @@ const app = http.createServer(function (request, response) {
   }
   // update
   else if (pathname === "/update") {
-    let title = queryData.id;
+    let title = path.parse(queryData.id).base;
     fs.readFile(`data/${title}`, "utf8", (err, desc) => {
-      const body = createFormTemplate("update", title, desc);
-      const template = createDescTemplate(list, title, body);
+      const body = template.formTemplate("update", title, desc);
+      const tmpl = template.descTemplate(list, title, body);
       response.writeHead(200);
-      response.end(template);
+      response.end(tmpl);
     });
   }
   // update 처리
@@ -144,7 +105,7 @@ const app = http.createServer(function (request, response) {
 
     request.on("end", () => {
       const post = qs.parse(body);
-      const id = post.id;
+      const id = path.parse(post.id).base;
       fs.unlink(`data/${id}`, (err) => {
         if (err) throw err;
         response.writeHead(302, { Location: "/" });
