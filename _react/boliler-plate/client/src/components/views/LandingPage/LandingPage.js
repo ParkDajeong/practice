@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
-// ↑ 를 import 해야 props.history.push() 사용 가능.
+// ↑↑↑ 를 import 해야 props.history.push() 사용 가능.
 // export 시, withRouter()로 감싸서 넘겨야한다.
 
 function LandingPage(props) {

@@ -1,6 +1,8 @@
 const express = require("express");
+// express() 함수를 이용하여 새로운 app 생성.
 const app = express();
 const port = 5000;
+
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { User } = require("./models/User");
@@ -8,12 +10,19 @@ const { auth } = require("./middleware/auth");
 
 const config = require("./config/key");
 
-// body-parser: 클라이언트에서 오는 정보를 서버에 전달할 수 있도록 분석해주는 역할
+// body-parser:
+// 클라이언트 POST request data의 body로부터 편리하게 파라미터 추출을 할 수 있도록 도와주는 역할.
+// 하지만, Express v.4.16.0 부터 body-parser의 일부 기능이 내장됨.
+// 따로 body-parser를 import 하지 않고, 아래처럼 사용 가능. ( https://backback.tistory.com/336 )
+
+// app.use(express.json());  ==> json 타입을 가져올 수 있게 도와주는..
+// app.use(express.urlencoded({ extended: true }));  ==> 이건 url 관련
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use(cookieParser());
 
+// mongoose 는 Node.js 와 MongoDB를 위한 ODM(Object Data Mapping) 라이브러리.
 const mongoose = require("mongoose");
 mongoose
   .connect(config.mongoURI, {
@@ -25,6 +34,9 @@ mongoose
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
 
+//
+
+// "/" 페이지에 들어가면 response.send() 메서드 안에 있는 내용 출력.
 app.get("/", (req, res) => res.send("Hello, World~ 안녕하세요~~ 감사해요~ 잘있어요~"));
 
 app.get("/api/hello", (req, res) => {
@@ -32,6 +44,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 //
+
 // *** 회원 가입 라우터 ***
 app.post("/api/users/register", (req, res) => {
   // body-parser를 이용하여
@@ -39,13 +52,11 @@ app.post("/api/users/register", (req, res) => {
   const user = new User(req.body);
 
   // sava()는 mongodb 메서드
-  user.save((err, doc) => {
+  user.save((err, userInfo) => {
     if (err) {
       return res.json({ success: false, err });
     }
-    return res.status(200).json({
-      success: true,
-    });
+    return res.status(200).json({ success: true });
   });
 });
 
@@ -115,4 +126,5 @@ app.get("/api/users/logout", auth, (req, res) => {
   );
 });
 
+// 해당 포트 번호로 통신이 성공하면 콘솔 출력.
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

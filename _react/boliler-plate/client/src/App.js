@@ -14,9 +14,8 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          {/* <Route exact path="/">
-            <LandingPage />
-          </Route> */}
+          {/* 아래처럼 <Route> 컴포넌트 안에 포함하는 것도 가능.. */}
+          {/* <Route exact path="/"> <LandingPage /> </Route> */}
           <Route exact path="/" component={Auth(LandingPage, null)} />
           <Route exact path="/login" component={Auth(LoginPage, false)} />
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
