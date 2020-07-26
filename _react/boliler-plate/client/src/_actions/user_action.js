@@ -1,3 +1,5 @@
+// action: 무엇이 일어났는지 설명하는 객체(Reducer로 전달)
+
 import axios from "axios";
 import { LOGIN_USER, REGISTER_USER, AUTH_USER } from "./types";
 
