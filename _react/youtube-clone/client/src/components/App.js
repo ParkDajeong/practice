@@ -9,6 +9,7 @@ import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import VideoUploadPage from "./views/VideoUploadPage/VideoUploadPage";
 import VideoDetailPage from "./views/VideoDetailPage/VideoDetailPage";
+import SubscriptionPage from "./views/SubscriptionPage/SubscriptionPage";
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -22,9 +23,6 @@ function App() {
         style={{
           paddingTop: "69px",
           minHeight: "calc(100vh - 80px)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
         }}
       >
         <Switch>
@@ -33,6 +31,7 @@ function App() {
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/video/upload" component={Auth(VideoUploadPage, true)} />
           <Route exact path="/video/:videoId" component={Auth(VideoDetailPage, null)} />
+          <Route exact path="/subscription" component={Auth(SubscriptionPage, null)} />
         </Switch>
       </div>
       <Footer />
