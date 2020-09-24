@@ -13,6 +13,7 @@ class PhoneForm extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+    console.log("검색", e.target.value);
   };
 
   handleSubmit = (e) => {
