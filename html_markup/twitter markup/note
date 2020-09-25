@@ -1,0 +1,15 @@
+Sectioning element(section, article, nav, aside) 내에는 반드시 heading 태그를 작성해야 한다.
+<header>, <main>, <footer> 태그는 Sectioning element 가 아님.
+
+<nav>의 경우, 보통 제목이 없긴 하지만 그래도 heading 태그를 사용하여 좀 더 정보를 명확하게 전달할 수 있도록 한다.
+  ==> 시각적인 부분은 CSS로 처리하면 됨.
+
+<main> 태그는 하나의 html 문서 안에서 단 한 개만 사용할 수 있다.
+가장 핵심적인 정보 컨텐츠를 묶어줄 때만 사용하는 것이 <main> 태그.
+
+<header> 태그는 다양한 곳에서 사용 가능(ex. <section>, <div> 등..)
+어떤 요소의 도입부에 해당되는 부분의 뉘앙스를 살려주기 위해선 언제든지 사용할 수 있다.
+
+<article> 태그는 뉴스 기사, 블로그 글 등과 같이 컨텐츠(정보)로서 완결성이 있다고 판단될 경우 사용한다.
+<section> 보다 좀 더 뉘앙스를 살리고 싶다면 사용.
+
