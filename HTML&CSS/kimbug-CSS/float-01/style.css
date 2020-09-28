@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+a {
+  font-size: 18px;
+  line-height: 20px;
+  color: #8492a6;
+  text-decoration: none;
+}
+
+ul {
+  /* display: flex; */
+  padding: 0;
+  list-style: none;
+}
+
+ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+ul li {
+  margin: 0 1rem;
+  float: left;
+}
+
+ul li a {
+  display: inline-block;
+  padding: 1rem;
+}
+
+ul li a:hover {
+  color: #2860e1;
+  font-weight: 700;
+  border-bottom: 3px solid #2860e1;
+}
