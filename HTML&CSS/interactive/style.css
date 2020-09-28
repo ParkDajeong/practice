@@ -1,0 +1,42 @@
+body {
+  position: relative;
+  background-color: black;
+  margin: 0;
+}
+
+h1 {
+  color: #fff;
+  margin: 0;
+}
+
+button {
+  padding: 30px 80px;
+  margin: 50px;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: #fff;
+  color: goldenrod;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+button:hover {
+  background-color: goldenrod;
+  color: #fff;
+  padding: 80px 120px;
+  font-size: 80px;
+}
+
+.cursor_item {
+  background-color: goldenrod;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 0;
+  left: 0;
+  margin: -40px 0 0 -40px;
+  /* CSS Easing: https://matthewlein.com/tools/ceaser */
+  transition: all 0.8s cubic-bezier(0.75, -0.465, 0.295, 1.515);
+}
