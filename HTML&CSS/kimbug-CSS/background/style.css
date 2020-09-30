@@ -1,0 +1,147 @@
+.like-button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* ▼ WHERE YOUR CODE BEGINS */
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #e5e9f2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sr-only {
+  position: absolute;
+  z-index: -100;
+  /* width나 height의 값에 하나라도 0을 주게 되면
+     diplay: none과 같이 아예 없는 취급을 하게 되므로, 꼭 1px 이상은 줘야 한다. */
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.card {
+  background-color: #fff;
+  display: flex;
+  padding: 25px;
+  width: 840px;
+}
+
+/* Card Image */
+.card-image {
+  background-image: url("./assets/img-house.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 6px;
+  margin-right: 24px;
+}
+
+.like-button {
+  background: #fff url("./assets/icon-favorite.svg") no-repeat center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 2px 0;
+}
+
+.property-type .plus-badge {
+  background-color: #92174d;
+  display: inline-block;
+  padding: 1px 8px;
+  margin-right: 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.428571;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.property-type span {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #7d858f;
+}
+
+.property-rate {
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.property-rate::before {
+  content: "";
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("./assets/icon-star.svg") no-repeat center;
+}
+
+.property-rate strong {
+  color: #151b26;
+  font-weight: 400;
+}
+
+.property-rate span {
+  color: #7d858f;
+}
+
+/* Card Body */
+.card-title {
+  color: #151b26;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.card-detail {
+  color: #7d858f;
+  font-size: 14px;
+  line-height: 1.142857142;
+}
+
+.card-detail .property-detail div {
+  margin-bottom: 8px;
+}
+
+.card-detail .property-detail dd span::after {
+  content: "·";
+  margin: 0 5px;
+}
+
+.card-detail .property-detail dd span:last-child::after {
+  content: "";
+  margin: 0;
+}
