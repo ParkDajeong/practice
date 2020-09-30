@@ -1,0 +1,43 @@
+@keyframes 을 사용하여 애니메이션 정의.
+
+🔽 기본
+@keyframes name {
+  from {
+    ...
+  }
+
+  to {
+    ...
+  }
+}
+
+🔽 좀 더 디테일하게 컨트롤하고 싶다면..
+@keyframes name {
+  0% {
+    ...
+  }
+
+  50% {
+    ...
+  }
+
+  100% {
+    ...
+  }
+}
+
+
+animation-name: (@keyframes로 정의한 애니메이션의) name;
+
+animation-duration: ms | s  ==> transition과 마찬가지로 애니메이션을 지속할 시간
+
+animation-timing-function: transition과 동일
+
+animation-delay: ms | s
+
+animation-iteration-count: 정수 | infinite ==> 몇 번 반복할 것인지 설정
+
+animation-direction: @keyframes에서 선언한 애니메이션의 순서(방향)를 어떻게 할 지에 대해 설정
+                     reverse를 사용하면 to -> from, 100% -> 0% 의 순서로 진행된다.
+                     alternate를 사용하면 애니메이션 반복 시, 원상태로 돌아가면서 뚝뚝 끊기는 느낌을 없애줄 수 있다.
+                      ==> from -> to 로 우선 실행 후, 원상태로 돌아갈 때 to -> from 방향으로 애니메이션 실행하여 부드럽게 보여줌.(그리고 iteration-count 값만큼 계속 반복)

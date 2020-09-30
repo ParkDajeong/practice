@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #e5e9f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Mulish", sans-serif;
+}
+
+.loading {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 216px;
+}
+
+.loading-title {
+  color: #151b26;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3333333;
+  margin-bottom: 20px;
+  animation: flicker 1.6s ease-in infinite alternate;
+}
+
+.progress-bar {
+  background-color: #e5eaef;
+  position: relative;
+  width: 300px;
+  height: 12px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-bar-gauge {
+  background-color: #13ce66;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 12px;
+  border-radius: 30px;
+  animation-name: loading-bar;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading-bar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

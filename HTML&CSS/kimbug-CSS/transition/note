@@ -1,0 +1,7 @@
+transition: property | duration | [timing-function] | [delay]   => []: 옵션
+
+timing-function
+* ease-in: 처음에는 천천히 -> 점점 빠르게
+* ease-out: 처음에는 빠르게 -> 점점 느리게
+* ease-in-out: ease-in 과 ease-out를 합친 것
+* cubic-bezier(): custom 함수 ==> cubic-bezier.com 사이트 활용
