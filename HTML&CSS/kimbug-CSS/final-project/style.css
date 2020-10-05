@@ -75,6 +75,26 @@ p {
   transition: opacity 300ms ease-in-out;
 }
 
+.section {
+  padding: 80px 0;
+}
+
+.section-category {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.section-title {
+  margin-bottom: 24px;
+  font-size: 34px;
+  line-height: 1.058823529;
+  letter-spacing: -0.03em;
+  color: #2b292d;
+}
+
 /* Landing Section */
 .landing {
   background-color: #fdded8;
@@ -127,6 +147,52 @@ p {
   margin-bottom: 40px;
 }
 
+/* Program Section */
+.program .section-category {
+  color: #009b4d;
+}
+
+.program .col-12:first-child {
+  margin-bottom: 32px;
+}
+
+.program-list-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 290px;
+  height: 291px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 7px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.program-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.program-list-item:active {
+  background-color: #3141c5;
+  color: #fff;
+}
+
+.program-list-item img {
+  display: block;
+  width: auto;
+  height: 195px;
+  margin-bottom: 16px;
+}
+
+.program-list-item span {
+  color: #2b292d;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33333333;
+  letter-spacing: -0.02em;
+}
+
 /* >= 768px (Desktop) */
 @media screen and (min-width: 768px) {
   p {
@@ -139,6 +205,22 @@ p {
     height: 56px;
     font-size: 18px;
     line-height: 1.55555555;
+  }
+
+  .section {
+    padding: 80px 0 96px;
+  }
+
+  .section-category {
+    margin-bottom: 16px;
+    font-size: 22px;
+    line-height: 1.09090909;
+  }
+
+  .section-title {
+    margin-bottom: 32px;
+    font-size: 56px;
+    line-height: 1;
   }
 
   /* Landing Section */
@@ -169,6 +251,39 @@ p {
 
   .service .col-12:first-child {
     margin-bottom: 0;
+  }
+
+  /* Program Section */
+  .program {
+    text-align: center;
+  }
+
+  .program .col-12:first-child {
+    margin-bottom: 72px;
+  }
+
+  .program-list {
+    display: flex;
+    justify-content: center;
+  }
+
+  .program-list-item {
+    height: 299px;
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+
+  .program-list-item:last-child {
+    margin-right: 0;
+  }
+
+  .program-list-item img {
+    margin-bottom: 24px;
+  }
+
+  .program-list-item span {
+    font-size: 20px;
+    line-height: 1.2;
   }
 }
 
