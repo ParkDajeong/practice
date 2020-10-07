@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+* {
+  font-family: "Nanum Gothic", AppleSDGothicNeo-Regular, "Malgun Gothic", "맑은 고딕", dotum, "돋움", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
