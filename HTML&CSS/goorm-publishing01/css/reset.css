@@ -11,6 +11,19 @@ a {
   text-decoration: none;
 }
 
+dl,
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 /* IR 기법*/
 /* Phark Method - 의미있는 이미지의 대체 텍스트를 제공하는 경우(But.이미지가 없을 때, 대체 텍스트가 보이지 않음) */
 .ir_pm {

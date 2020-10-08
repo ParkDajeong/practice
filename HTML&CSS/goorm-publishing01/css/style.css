@@ -124,29 +124,137 @@ body {
 
 /* Contents */
 .contents {
-  background-color: #222;
   width: 100%;
   height: 800px;
 }
 
-.content-nav,
-.content-title,
-.content-banner,
-.content {
-  width: 100%;
-  height: 200px;
-}
-
+/* Content Nav */
 .content-nav {
-  background-color: #333;
+  background-color: #f6fdff;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
 }
 
+.content-nav .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-nav .menu h3 {
+  font-size: 18px;
+  color: #25a2d0;
+  margin-bottom: 4px;
+}
+
+.content-nav .menu ol li {
+  float: left;
+  width: 50%;
+}
+
+.content-nav .menu:last-child ol li {
+  float: none;
+  width: auto;
+}
+
+.content-nav .menu ol li a {
+  font-size: 14px;
+}
+
+.content-nav .menu ol li a:hover {
+  text-decoration: underline;
+}
+
+/* Content Title */
 .content-title {
-  background-color: #444;
+  background-color: #eaf7fd;
+  text-align: center;
 }
 
+.content-title .container {
+  position: relative;
+}
+
+.content-title h2 {
+  padding: 15px 0;
+  color: #2c94c4;
+  font-family: "Nanum Brush Script", cursive;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.content-title button {
+  background: url("../img/icon.png") no-repeat 0 -600px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  transform: translateY(-50%);
+}
+
+.content-title button:hover {
+  background-position-x: -60px;
+}
+
+/* Content Banner */
 .content-banner {
-  background-color: #555;
+  background-color: #dceff7;
+  padding: 20px 0;
+}
+
+.content-banner .container {
+  position: relative;
+}
+
+.content-banner .container button {
+  background: url("../img/icon.png") no-repeat;
+  position: absolute;
+  top: 50%;
+  width: 43px;
+  height: 43px;
+  transform: translateY(-50%);
+}
+
+.content-banner .container .prev {
+  left: -60px;
+  background-position: -150px 0;
+}
+
+.content-banner .container .prev:hover {
+  background-position: -193px 0;
+}
+
+.content-banner .container .next {
+  right: -60px;
+  background-position: -150px -43px;
+}
+
+.content-banner .container .next:hover {
+  background-position: -193px -43px;
+}
+
+.banner-slide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-slide li {
+  margin: 0 8px;
+}
+
+.banner-slide li a {
+  display: block;
+}
+
+.banner-slide li a img {
+  display: block;
+  border: 4px solid #dcdcdc;
+}
+
+.banner-slide li a img:hover {
+  border-color: #98bcdc;
 }
 
 .content {
