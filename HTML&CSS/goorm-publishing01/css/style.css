@@ -40,6 +40,7 @@ body {
   height: 325px;
 }
 
+/* Header - Nav */
 .header-nav {
   text-align: right;
 }
@@ -54,6 +55,7 @@ body {
   color: #666;
 }
 
+/* Header - Title */
 .header-title {
   display: flex;
   flex-direction: column;
@@ -83,6 +85,41 @@ body {
 
 .header-title a:hover {
   text-decoration: underline;
+}
+
+/* Header - icon */
+.header-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-icon a.icon {
+  background: url("../img/icon.png");
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 5px;
+}
+
+.header-icon a.icon:hover {
+  background-position-x: -60px;
+}
+
+.header-icon a.icon1 {
+  background-position: 0 0;
+}
+
+.header-icon a.icon2 {
+  background-position: 0 -60px;
+}
+
+.header-icon a.icon3 {
+  background-position: 0 -120px;
+}
+
+.header-icon a.icon4 {
+  background-position: 0 -180px;
 }
 
 /* Contents */
