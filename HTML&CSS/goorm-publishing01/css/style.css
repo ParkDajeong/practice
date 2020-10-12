@@ -443,6 +443,65 @@ body {
   white-space: nowrap;
 }
 
+/* board - mouse over */
+.board-over-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.board-over-list:last-child {
+  margin-bottom: 0;
+}
+
+.board-over-list li {
+  width: 93px;
+}
+
+.board-over-list li a {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+}
+
+.board-over-list li a:hover em {
+  opacity: 1;
+}
+
+.board-over-list li img {
+  display: block;
+  width: 100%;
+}
+
+.board-over-list li a span {
+  position: relative;
+  display: block;
+}
+
+.board-over-list li em {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  opacity: 0;
+}
+
+.board-over-list li em.overlay-bottom {
+  height: fit-content;
+  top: auto;
+  bottom: 0;
+}
+
+.board-over-list li strong {
+  font-weight: 500;
+}
+
 /* Footer */
 .footer {
   background-color: #333;
