@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^4.4.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "formik": "^2.1.5",
     "moment": "^2.27.0",
